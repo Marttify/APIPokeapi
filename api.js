@@ -54,8 +54,8 @@ function cardPokemon(dataPokemons) {
                     <h3>${dataPokemons.stats[2].base_stat}k</h3>
                     <p>${dataPokemons.stats[2].stat.name}</p>
                     <a href="#" class="card-link list-group-item">
-                    <h3>${dataPokemons.stats[4].stat.name} ${dataPokemons.stats[5].base_stat}K</h3>
-                </a>
+                        <h3>${dataPokemons.stats[4].stat.name} ${dataPokemons.stats[5].base_stat}K</h3>
+                    </a>
                 </li>
             </ul>
             <div class="card-body flex-row">
