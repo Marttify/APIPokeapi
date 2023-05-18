@@ -13,9 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const ramdom = getRandomInt(1, 152)
         obtenerPokemons(ramdom)
         i = i + 1
-        console.log(i);
     }
-    // obtenerPokemons(ramdom)
 })
 
 
