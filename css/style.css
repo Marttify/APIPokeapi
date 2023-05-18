@@ -22,19 +22,9 @@ html {
     font-size: 62.5%;
 }
 
-*,
-*:before,
-*:after {
-    -webkit-box-sizing: inherit;
-    box-sizing: inherit;
-}
-
 body {
     font-family: 'Kumbh Sans', sans-serif;
     background-color: var(--dark-cyan);
-    background-image: url("../images/bg-pattern-top.svg"), url("../images/bg-pattern-bottom.svg");
-    background-repeat: no-repeat, no-repeat;
-    background-position: right 50vw bottom 50vh, left 50vw top 50vh;
 }
 
 

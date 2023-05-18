@@ -1,29 +1,21 @@
 const listaPokemon = document.querySelector("#lista-pokemon");
 
-
+// Math.random()
+// Esta funcion devuelve un número aleatorio situado entre dos valores específicos. El valor devuelto será mayor o igual que min y menor que max.
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
-    const ramdom = getRandomInt(1, 152)
-    const ramdom1 = getRandomInt(1, 152)
-    const ramdom2 = getRandomInt(1, 152)
-    const ramdom3 = getRandomInt(1, 152)
-    const ramdom4 = getRandomInt(1, 152)
-    const ramdom5 = getRandomInt(1, 152)
-    const ramdom6 = getRandomInt(1, 152)
-    const ramdom7 = getRandomInt(1, 152)
-    const ramdom8 = getRandomInt(1, 152)
-    obtenerPokemons(ramdom)
-    obtenerPokemons(ramdom1)
-    obtenerPokemons(ramdom2)
-    obtenerPokemons(ramdom3)
-    obtenerPokemons(ramdom4)
-    obtenerPokemons(ramdom5)
-    obtenerPokemons(ramdom6)
-    obtenerPokemons(ramdom7)
-    obtenerPokemons(ramdom8)
+    let i = 0
+    while (i <= 10) {
+        const ramdom = getRandomInt(1, 152)
+        obtenerPokemons(ramdom)
+        i = i + 1
+        console.log(i);
+    }
+    // obtenerPokemons(ramdom)
 })
 
 
