@@ -32,39 +32,45 @@ function obtenerPokemons(id) {
 }
 
 
-// impresion grafica de los pokemons
 function cardPokemon(dataPokemons) {
+    const listaPokemon = document.querySelector("#lista-pokemon");
+
+    // Validar datos esenciales
+    const imageUrl = dataPokemons?.sprites?.other?.dream_world?.front_default || "https://via.placeholder.com/150";
+    const name = dataPokemons?.name || "Nombre no disponible";
+    const experience = dataPokemons?.base_experience || "Desconocida";
+    const stats = dataPokemons?.stats || [];
+    const abilities = dataPokemons?.abilities || [];
+
+    // Crear estructura de habilidades y estadísticas
+    const abilityList = abilities
+        .slice(0, 2) // Mostrar solo las dos primeras habilidades
+        .map(ability => ability?.ability?.name || "Habilidad desconocida")
+        .join(", ");
+
+    const statsList = stats
+        .slice(0, 3) // Mostrar solo las primeras tres estadísticas
+        .map(stat => `
+            <li>
+                <h4>${stat?.base_stat || 0}</h4>
+                <p>${stat?.stat?.name || "Estadística desconocida"}</p>
+            </li>
+        `)
+        .join("");
+
+    // Generar la tarjeta
     listaPokemon.innerHTML += `
-        <div class="card" style="width: 25rem;">
-            <img src="${dataPokemons.sprites.other.dream_world.front_default}" alt="imagen de vitoko" class="card-body-img">
+        <div class="card" style="width: 18rem; padding: 1rem; margin: 1rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <img src="${imageUrl}" alt="${name}" class="card-img-top" style="border-radius: 10px 10px 0 0;">
             <div class="card-body">
-                <a class="card-title">${dataPokemons.name}</a>
-                <p class="card-text">${dataPokemons.base_experience}</p>
+                <h5 class="card-title" style="text-transform: capitalize;">${name}</h5>
+                <p class="card-text">Experiencia base: <strong>${experience}</strong></p>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    
-                    <h3>${dataPokemons.stats[1].base_stat}k</h3>
-                    <p>${dataPokemons.stats[1].stat.name}</p>
-                    <a href="#" class="card-link list-group-item">
-                        <h3>${dataPokemons.stats[3].stat.name} ${dataPokemons.stats[3].base_stat}K</h3>
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <h3>${dataPokemons.stats[2].base_stat}k</h3>
-                    <p>${dataPokemons.stats[2].stat.name}</p>
-                    <a href="#" class="card-link list-group-item">
-                        <h3>${dataPokemons.stats[4].stat.name} ${dataPokemons.stats[5].base_stat}K</h3>
-                    </a>
-                </li>
+            <ul class="list-group list-group-flush" style="padding: 1rem;>
+                ${statsList}
             </ul>
-            <div class="card-body flex-row">
-                <p href="#" class="card-link list-group-item">
-                    ${dataPokemons.abilities[1].ability.name}
-                </p>
-                <p href="#" class="card-link list-group-item">
-                    ${dataPokemons.abilities[2].ability.name}
-                </p>
+            <div class="card-footer">
+                <p><strong>Habilidades:</strong> ${abilityList}</p>
             </div>
         </div>
     `;
